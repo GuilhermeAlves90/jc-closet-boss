@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VendasRouteImport } from './routes/vendas'
-import { Route as MetasRouteImport } from './routes/metas'
 import { Route as LancamentosRouteImport } from './routes/lancamentos'
 import { Route as FinanceiroRouteImport } from './routes/financeiro'
 import { Route as EstoqueRouteImport } from './routes/estoque'
@@ -21,11 +20,6 @@ import { Route as IndexRouteImport } from './routes/index'
 const VendasRoute = VendasRouteImport.update({
   id: '/vendas',
   path: '/vendas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MetasRoute = MetasRouteImport.update({
-  id: '/metas',
-  path: '/metas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LancamentosRoute = LancamentosRouteImport.update({
@@ -66,7 +60,6 @@ export interface FileRoutesByFullPath {
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/lancamentos': typeof LancamentosRoute
-  '/metas': typeof MetasRoute
   '/vendas': typeof VendasRoute
 }
 export interface FileRoutesByTo {
@@ -76,7 +69,6 @@ export interface FileRoutesByTo {
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/lancamentos': typeof LancamentosRoute
-  '/metas': typeof MetasRoute
   '/vendas': typeof VendasRoute
 }
 export interface FileRoutesById {
@@ -87,7 +79,6 @@ export interface FileRoutesById {
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/lancamentos': typeof LancamentosRoute
-  '/metas': typeof MetasRoute
   '/vendas': typeof VendasRoute
 }
 export interface FileRouteTypes {
@@ -99,7 +90,6 @@ export interface FileRouteTypes {
     | '/estoque'
     | '/financeiro'
     | '/lancamentos'
-    | '/metas'
     | '/vendas'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -109,7 +99,6 @@ export interface FileRouteTypes {
     | '/estoque'
     | '/financeiro'
     | '/lancamentos'
-    | '/metas'
     | '/vendas'
   id:
     | '__root__'
@@ -119,7 +108,6 @@ export interface FileRouteTypes {
     | '/estoque'
     | '/financeiro'
     | '/lancamentos'
-    | '/metas'
     | '/vendas'
   fileRoutesById: FileRoutesById
 }
@@ -130,7 +118,6 @@ export interface RootRouteChildren {
   EstoqueRoute: typeof EstoqueRoute
   FinanceiroRoute: typeof FinanceiroRoute
   LancamentosRoute: typeof LancamentosRoute
-  MetasRoute: typeof MetasRoute
   VendasRoute: typeof VendasRoute
 }
 
@@ -141,13 +128,6 @@ declare module '@tanstack/react-router' {
       path: '/vendas'
       fullPath: '/vendas'
       preLoaderRoute: typeof VendasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/metas': {
-      id: '/metas'
-      path: '/metas'
-      fullPath: '/metas'
-      preLoaderRoute: typeof MetasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lancamentos': {
@@ -202,7 +182,6 @@ const rootRouteChildren: RootRouteChildren = {
   EstoqueRoute: EstoqueRoute,
   FinanceiroRoute: FinanceiroRoute,
   LancamentosRoute: LancamentosRoute,
-  MetasRoute: MetasRoute,
   VendasRoute: VendasRoute,
 }
 export const routeTree = rootRouteImport
