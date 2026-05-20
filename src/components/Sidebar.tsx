@@ -7,7 +7,6 @@ import {
   DollarSign,
   Wallet,
   Receipt,
-  Target,
   Store,
 } from "lucide-react";
 
@@ -19,7 +18,6 @@ const navItems = [
   { to: "/lancamentos", label: "Lançamentos", icon: Receipt },
   { to: "/caixa", label: "Caixa do Dia", icon: Wallet },
   { to: "/financeiro", label: "Financeiro", icon: DollarSign },
-  { to: "/metas", label: "Metas", icon: Target },
 ] as const;
 
 export function Sidebar() {
