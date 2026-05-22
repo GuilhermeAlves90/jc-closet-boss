@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout, StatCard } from "@/components/AppLayout";
 import { Mail, Phone, Plus, Trash2, Users } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/colaboradores")({
   head: () => ({ meta: [{ title: "Colaboradores — JC Store" }] }),
@@ -33,8 +33,24 @@ function initials(name: string) {
   return name.split(" ").slice(0, 2).map((n) => n[0]).join("");
 }
 
+const STORAGE_KEY = "jcstore:colaboradores";
+
 function ColaboradoresPage() {
-  const [team, setTeam] = useState(initial);
+  const [team, setTeam] = useState<Member[]>(() => {
+    if (typeof window === "undefined") return initial;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? (JSON.parse(saved) as Member[]) : initial;
+    } catch {
+      return initial;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(team));
+    } catch {}
+  }, [team]);
 
   const handleDelete = (id: string, name: string) => {
     if (confirm(`Excluir ${name}? Essa ação não pode ser desfeita.`)) {
