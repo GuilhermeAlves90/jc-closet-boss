@@ -87,24 +87,32 @@ function VendasPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {ranking.map((r, i) => (
-                <tr key={r.name} className="hover:bg-accent/30">
-                  <td className="py-4">
-                    <span className={`inline-flex h-7 w-7 rounded-full items-center justify-center text-xs font-bold ${i === 0 ? "bg-warning/20 text-warning" : i === 1 ? "bg-muted text-foreground" : i === 2 ? "bg-chart-5/20 text-chart-5" : "bg-secondary text-muted-foreground"}`}>
-                      {i + 1}
-                    </span>
+              {ranking.length === 0 ? (
+                <tr>
+                  <td colSpan={10} className="py-8 text-center text-sm text-muted-foreground">
+                    Nenhum vendedor cadastrado ainda.
                   </td>
-                  <td className="py-4 font-medium">{r.name}</td>
-                  <td className="py-4 text-right">{r.orders}</td>
-                  <td className="py-4 text-right">{r.units}</td>
-                  <td className="py-4 text-right font-semibold">{r.revenue}</td>
-                  <td className="py-4 text-right text-muted-foreground">{r.cost}</td>
-                  <td className="py-4 text-right text-success">{r.marginR}</td>
-                  <td className="py-4 text-right">{r.marginP}</td>
-                  <td className="py-4 text-right">{r.ticket}</td>
-                  <td className="py-4 text-right text-success font-semibold">{r.commR}</td>
                 </tr>
-              ))}
+              ) : (
+                ranking.map((r, i) => (
+                  <tr key={r.name} className="hover:bg-accent/30">
+                    <td className="py-4">
+                      <span className={`inline-flex h-7 w-7 rounded-full items-center justify-center text-xs font-bold ${i === 0 ? "bg-warning/20 text-warning" : i === 1 ? "bg-muted text-foreground" : i === 2 ? "bg-chart-5/20 text-chart-5" : "bg-secondary text-muted-foreground"}`}>
+                        {i + 1}
+                      </span>
+                    </td>
+                    <td className="py-4 font-medium">{r.name}</td>
+                    <td className="py-4 text-right">{r.orders}</td>
+                    <td className="py-4 text-right">{r.units}</td>
+                    <td className="py-4 text-right font-semibold">{r.revenue}</td>
+                    <td className="py-4 text-right text-muted-foreground">{r.cost}</td>
+                    <td className="py-4 text-right text-success">{r.marginR}</td>
+                    <td className="py-4 text-right">{r.marginP}</td>
+                    <td className="py-4 text-right">{r.ticket}</td>
+                    <td className="py-4 text-right text-success font-semibold">{r.commR}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
