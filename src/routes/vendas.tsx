@@ -7,13 +7,18 @@ export const Route = createFileRoute("/vendas")({
   component: VendasPage,
 });
 
-const ranking = [
-  { name: "LARISSA COSTA", orders: 18, units: 26, revenue: "R$ 4.740,50", cost: "R$ 2.425,44", marginR: "R$ 2.315,06", marginP: "48.8%", ticket: "R$ 263,36", commP: "10%", commR: "R$ 474,05" },
-  { name: "CÉSAR RICARDO GOMES", orders: 30, units: 51, revenue: "R$ 7.385,00", cost: "R$ 3.432,46", marginR: "R$ 3.952,54", marginP: "53.5%", ticket: "R$ 246,17", commP: "10%", commR: "R$ 738,50" },
-  { name: "ANDRÉ CARLOS", orders: 15, units: 17, revenue: "R$ 3.505,00", cost: "R$ 1.864,09", marginR: "R$ 1.640,91", marginP: "46.8%", ticket: "R$ 233,67", commP: "10%", commR: "R$ 350,50" },
-  { name: "ARMANDO SILVA BISPO", orders: 10, units: 15, revenue: "R$ 2.484,00", cost: "R$ 1.254,73", marginR: "R$ 1.229,27", marginP: "49.5%", ticket: "R$ 248,40", commP: "10%", commR: "R$ 248,40" },
-  { name: "CAMILA BARBOSA", orders: 11, units: 16, revenue: "R$ 2.260,50", cost: "R$ 1.183,21", marginR: "R$ 1.077,29", marginP: "47.7%", ticket: "R$ 205,50", commP: "10%", commR: "R$ 226,05" },
-];
+const ranking: {
+  name: string;
+  orders: number;
+  units: number;
+  revenue: string;
+  cost: string;
+  marginR: string;
+  marginP: string;
+  ticket: string;
+  commP: string;
+  commR: string;
+}[] = [];
 
 function VendasPage() {
   return (
