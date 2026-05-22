@@ -7,13 +7,18 @@ export const Route = createFileRoute("/vendas")({
   component: VendasPage,
 });
 
-const ranking = [
-  { name: "LARISSA COSTA", orders: 18, units: 26, revenue: "R$ 4.740,50", cost: "R$ 2.425,44", marginR: "R$ 2.315,06", marginP: "48.8%", ticket: "R$ 263,36", commP: "10%", commR: "R$ 474,05" },
-  { name: "CÉSAR RICARDO GOMES", orders: 30, units: 51, revenue: "R$ 7.385,00", cost: "R$ 3.432,46", marginR: "R$ 3.952,54", marginP: "53.5%", ticket: "R$ 246,17", commP: "10%", commR: "R$ 738,50" },
-  { name: "ANDRÉ CARLOS", orders: 15, units: 17, revenue: "R$ 3.505,00", cost: "R$ 1.864,09", marginR: "R$ 1.640,91", marginP: "46.8%", ticket: "R$ 233,67", commP: "10%", commR: "R$ 350,50" },
-  { name: "ARMANDO SILVA BISPO", orders: 10, units: 15, revenue: "R$ 2.484,00", cost: "R$ 1.254,73", marginR: "R$ 1.229,27", marginP: "49.5%", ticket: "R$ 248,40", commP: "10%", commR: "R$ 248,40" },
-  { name: "CAMILA BARBOSA", orders: 11, units: 16, revenue: "R$ 2.260,50", cost: "R$ 1.183,21", marginR: "R$ 1.077,29", marginP: "47.7%", ticket: "R$ 205,50", commP: "10%", commR: "R$ 226,05" },
-];
+const ranking: {
+  name: string;
+  orders: number;
+  units: number;
+  revenue: string;
+  cost: string;
+  marginR: string;
+  marginP: string;
+  ticket: string;
+  commP: string;
+  commR: string;
+}[] = [];
 
 function VendasPage() {
   return (
@@ -82,24 +87,32 @@ function VendasPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {ranking.map((r, i) => (
-                <tr key={r.name} className="hover:bg-accent/30">
-                  <td className="py-4">
-                    <span className={`inline-flex h-7 w-7 rounded-full items-center justify-center text-xs font-bold ${i === 0 ? "bg-warning/20 text-warning" : i === 1 ? "bg-muted text-foreground" : i === 2 ? "bg-chart-5/20 text-chart-5" : "bg-secondary text-muted-foreground"}`}>
-                      {i + 1}
-                    </span>
+              {ranking.length === 0 ? (
+                <tr>
+                  <td colSpan={10} className="py-8 text-center text-sm text-muted-foreground">
+                    Nenhum vendedor cadastrado ainda.
                   </td>
-                  <td className="py-4 font-medium">{r.name}</td>
-                  <td className="py-4 text-right">{r.orders}</td>
-                  <td className="py-4 text-right">{r.units}</td>
-                  <td className="py-4 text-right font-semibold">{r.revenue}</td>
-                  <td className="py-4 text-right text-muted-foreground">{r.cost}</td>
-                  <td className="py-4 text-right text-success">{r.marginR}</td>
-                  <td className="py-4 text-right">{r.marginP}</td>
-                  <td className="py-4 text-right">{r.ticket}</td>
-                  <td className="py-4 text-right text-success font-semibold">{r.commR}</td>
                 </tr>
-              ))}
+              ) : (
+                ranking.map((r, i) => (
+                  <tr key={r.name} className="hover:bg-accent/30">
+                    <td className="py-4">
+                      <span className={`inline-flex h-7 w-7 rounded-full items-center justify-center text-xs font-bold ${i === 0 ? "bg-warning/20 text-warning" : i === 1 ? "bg-muted text-foreground" : i === 2 ? "bg-chart-5/20 text-chart-5" : "bg-secondary text-muted-foreground"}`}>
+                        {i + 1}
+                      </span>
+                    </td>
+                    <td className="py-4 font-medium">{r.name}</td>
+                    <td className="py-4 text-right">{r.orders}</td>
+                    <td className="py-4 text-right">{r.units}</td>
+                    <td className="py-4 text-right font-semibold">{r.revenue}</td>
+                    <td className="py-4 text-right text-muted-foreground">{r.cost}</td>
+                    <td className="py-4 text-right text-success">{r.marginR}</td>
+                    <td className="py-4 text-right">{r.marginP}</td>
+                    <td className="py-4 text-right">{r.ticket}</td>
+                    <td className="py-4 text-right text-success font-semibold">{r.commR}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
