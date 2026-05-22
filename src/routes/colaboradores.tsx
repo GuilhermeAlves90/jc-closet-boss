@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout, StatCard } from "@/components/AppLayout";
 import { Mail, Phone, Plus, Trash2, Users } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/colaboradores")({
   head: () => ({ meta: [{ title: "Colaboradores — JC Store" }] }),
