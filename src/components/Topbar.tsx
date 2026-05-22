@@ -13,7 +13,7 @@ export function Topbar({ title }: { title: string }) {
           <div className="h-9 w-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-semibold text-sm">
             JC
           </div>
-          <span className="text-sm font-medium hidden sm:inline">João Costa</span>
+          <span className="text-sm font-medium hidden sm:inline">Guilherme e César</span>
         </div>
       </div>
     </header>
