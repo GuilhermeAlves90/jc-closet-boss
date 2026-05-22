@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Sistema de gestão da JC Store: estoque, colaboradores e vendas." },
       { name: "author", content: "JC Store" },
       { property: "og:title", content: "JC Store — Gestão de Loja" },
-      { property: "og:description", content: "Sistema de gestão da JC Store." },
+      { property: "og:description", content: "Sistema de gestão da JC Store: estoque, colaboradores e vendas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@JCStore" },
+      { name: "twitter:title", content: "JC Store — Gestão de Loja" },
+      { name: "twitter:description", content: "Sistema de gestão da JC Store: estoque, colaboradores e vendas." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9b73a779-75f7-45c4-af4f-fde7d732d4f7/id-preview-d2d695fb--c7114e17-6f0a-49b4-8769-ed2f043fe954.lovable.app-1779301698510.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9b73a779-75f7-45c4-af4f-fde7d732d4f7/id-preview-d2d695fb--c7114e17-6f0a-49b4-8769-ed2f043fe954.lovable.app-1779301698510.png" },
     ],
     links: [
       {
