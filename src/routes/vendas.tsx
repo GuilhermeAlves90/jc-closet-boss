@@ -1,11 +1,27 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout, StatCard } from "@/components/AppLayout";
 import { ChevronLeft, ChevronRight, RefreshCw, Settings, Trophy, TrendingUp } from "lucide-react";
 
-export const Route = createFileRoute("/vendas")({
+export const Route = createFileRoute("/vendas")(({
   head: () => ({ meta: [{ title: "Vendas Produtos — JC Store" }] }),
   component: VendasPage,
-});
+}));
+
+const monthsData = {
+  0: { month: "Janeiro", units: 142, revenue: "R$ 18.540", cost: "R$ 9.270", marginR: "R$ 9.270", marginP: "50.0%", noCost: 0 },
+  1: { month: "Fevereiro", units: 154, revenue: "R$ 20.120", cost: "R$ 10.060", marginR: "R$ 10.060", marginP: "50.0%", noCost: 0 },
+  2: { month: "Março", units: 168, revenue: "R$ 21.980", cost: "R$ 10.990", marginR: "R$ 10.990", marginP: "50.0%", noCost: 0 },
+  3: { month: "Abril", units: 172, revenue: "R$ 22.450", cost: "R$ 11.225", marginR: "R$ 11.225", marginP: "50.0%", noCost: 0 },
+  4: { month: "Maio", units: 156, revenue: "R$ 20.375", cost: "R$ 10.159", marginR: "R$ 10.215", marginP: "50.1%", noCost: 0 },
+  5: { month: "Junho", units: 184, revenue: "R$ 24.120", cost: "R$ 12.060", marginR: "R$ 12.060", marginP: "50.0%", noCost: 0 },
+  6: { month: "Julho", units: 195, revenue: "R$ 25.480", cost: "R$ 12.740", marginR: "R$ 12.740", marginP: "50.0%", noCost: 0 },
+  7: { month: "Agosto", units: 202, revenue: "R$ 26.380", cost: "R$ 13.190", marginR: "R$ 13.190", marginP: "50.0%", noCost: 0 },
+  8: { month: "Setembro", units: 188, revenue: "R$ 24.560", cost: "R$ 12.280", marginR: "R$ 12.280", marginP: "50.0%", noCost: 0 },
+  9: { month: "Outubro", units: 210, revenue: "R$ 27.450", cost: "R$ 13.725", marginR: "R$ 13.725", marginP: "50.0%", noCost: 0 },
+  10: { month: "Novembro", units: 225, revenue: "R$ 29.380", cost: "R$ 14.690", marginR: "R$ 14.690", marginP: "50.0%", noCost: 0 },
+  11: { month: "Dezembro", units: 245, revenue: "R$ 32.010", cost: "R$ 16.005", marginR: "R$ 16.005", marginP: "50.0%", noCost: 0 },
+};
 
 const ranking: {
   name: string;
@@ -21,6 +37,21 @@ const ranking: {
 }[] = [];
 
 function VendasPage() {
+  const [selectedMonth, setSelectedMonth] = useState(4);
+  const monthData = monthsData[selectedMonth as keyof typeof monthsData];
+
+  const handlePrevMonth = () => {
+    setSelectedMonth((prev) => (prev === 0 ? 11 : prev - 1));
+  };
+
+  const handleNextMonth = () => {
+    setSelectedMonth((prev) => (prev === 11 ? 0 : prev + 1));
+  };
+
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
   return (
     <AppLayout title="Vendas Produtos">
       <div className="rounded-xl border border-border bg-card p-6">
@@ -33,35 +64,44 @@ function VendasPage() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button className="h-9 w-9 rounded-md bg-secondary hover:bg-accent flex items-center justify-center">
+            <button 
+              onClick={handlePrevMonth}
+              className="h-9 w-9 rounded-md bg-secondary hover:bg-accent flex items-center justify-center transition"
+            >
               <ChevronLeft className="h-4 w-4" />
             </button>
-            <div className="text-center px-2">
-              <p className="text-xl font-bold">Maio de 2026</p>
-              <p className="text-xs text-muted-foreground">Mês atual · visão ao vivo</p>
+            <div className="text-center px-2 min-w-[150px]">
+              <p className="text-xl font-bold">{monthData.month} de 2026</p>
+              <p className="text-xs text-muted-foreground">Mês selecionado · visão ao vivo</p>
             </div>
-            <button className="h-9 w-9 rounded-md bg-secondary hover:bg-accent flex items-center justify-center">
+            <button 
+              onClick={handleNextMonth}
+              className="h-9 w-9 rounded-md bg-secondary hover:bg-accent flex items-center justify-center transition"
+            >
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
         </div>
 
         <div className="flex gap-2 mt-5">
-          <button className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary hover:bg-accent text-sm">
+          <button 
+            onClick={handleRefresh}
+            className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary hover:bg-accent text-sm transition"
+          >
             <RefreshCw className="h-4 w-4" /> Atualizar
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary hover:bg-accent text-sm">
+          <button className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary hover:bg-accent text-sm transition">
             <Settings className="h-4 w-4" /> Preços de compra/venda
           </button>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-5">
-          <StatCard label="Unidades" value="156" />
-          <StatCard label="Receita" value="R$ 20.375" accent="success" />
-          <StatCard label="Custo total" value="R$ 10.159" accent="warning" />
-          <StatCard label="Margem R$" value="R$ 10.215" accent="success" />
-          <StatCard label="Margem %" value="50.1%" />
-          <StatCard label="Produtos sem custo" value="0" />
+          <StatCard label="Unidades" value={monthData.units.toString()} />
+          <StatCard label="Receita" value={monthData.revenue} accent="success" />
+          <StatCard label="Custo total" value={monthData.cost} accent="warning" />
+          <StatCard label="Margem R$" value={monthData.marginR} accent="success" />
+          <StatCard label="Margem %" value={monthData.marginP} />
+          <StatCard label="Produtos sem custo" value={monthData.noCost.toString()} />
         </div>
       </div>
 
