@@ -1,4 +1,4 @@
-{
+{"start": "node dist/server/index.js",
   "name": "tanstack_start_ts",
   "private": true,
   "sideEffects": false,
