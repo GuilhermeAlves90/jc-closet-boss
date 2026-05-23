@@ -1,0 +1,8 @@
+name = "jc-closet-boss"
+main = "dist/server/index.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+routes = [
+  { pattern = "jc-closet-boss-production.up.railway.app", zone_name = "up.railway.app" }
+]
