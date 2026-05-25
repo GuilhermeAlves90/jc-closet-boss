@@ -33,7 +33,7 @@ function initials(name: string) {
   return name.split(" ").slice(0, 2).map((n) => n[0]).join("");
 }
 
-const STORAGE_KEY = "jcstore:colaboradores";
+const STORAGE_KEY = "jcstore:colaboradores:v2";
 
 function ColaboradoresPage() {
   const [team, setTeam] = useState<Member[]>(() => {
