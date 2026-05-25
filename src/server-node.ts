@@ -12,7 +12,7 @@ async function start() {
       const request = new Request(url, {
         method: req.method,
         headers: req.headers as HeadersInit,
-        body: ["GET", "HEAD"].includes(req.method || "") ? undefined : req,
+        body: ["GET", "HEAD"].includes(req.method || "") ? undefined : (req as unknown as BodyInit),
       });
 
       const response = await handler.fetch(request, {}, {});
