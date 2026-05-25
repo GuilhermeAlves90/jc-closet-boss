@@ -12,11 +12,4 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  build: {
-    rollupOptions: {
-      input: {
-        server: "src/server-node.ts",
-      },
-    },
-  },
 });
