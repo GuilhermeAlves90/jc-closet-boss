@@ -91,20 +91,24 @@ function Dashboard() {
             <h3 className="font-semibold">Produtos mais vendidos</h3>
           </div>
           <div className="divide-y divide-border">
-            {topProducts.map((p, i) => (
-              <div key={p.name} className="flex items-center justify-between py-3">
-                <div className="flex items-center gap-3">
-                  <span className="h-7 w-7 rounded-md bg-primary/10 text-primary text-xs flex items-center justify-center font-bold">
-                    {i + 1}
-                  </span>
-                  <span className="text-sm font-medium">{p.name}</span>
+            {topProducts.length === 0 ? (
+              <p className="py-6 text-center text-sm text-muted-foreground">Nenhum produto vendido ainda.</p>
+            ) : (
+              topProducts.map((p, i) => (
+                <div key={p.name} className="flex items-center justify-between py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="h-7 w-7 rounded-md bg-primary/10 text-primary text-xs flex items-center justify-center font-bold">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm font-medium">{p.name}</span>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-semibold">{p.revenue}</p>
+                    <p className="text-xs text-muted-foreground">{p.sold} un.</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm font-semibold">{p.revenue}</p>
-                  <p className="text-xs text-muted-foreground">{p.sold} un.</p>
-                </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
 
