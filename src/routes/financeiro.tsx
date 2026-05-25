@@ -45,10 +45,10 @@ function FinanceiroPage() {
   return (
     <AppLayout title="Financeiro">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <StatCard label="Receita do mês" value="R$ 28.450" accent="success" />
-        <StatCard label="Despesas" value="R$ 9.820" accent="destructive" />
-        <StatCard label="Lucro líquido" value="R$ 18.630" accent="primary" />
-        <StatCard label="A receber" value="R$ 3.210" accent="warning" />
+        <StatCard label="Receita do mês" value="R$ 0,00" accent="success" />
+        <StatCard label="Despesas" value="R$ 0,00" accent="destructive" />
+        <StatCard label="Lucro líquido" value="R$ 0,00" accent="primary" />
+        <StatCard label="A receber" value="R$ 0,00" accent="warning" />
       </div>
 
       <div className="rounded-xl border border-border bg-card p-6">
