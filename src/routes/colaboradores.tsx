@@ -20,11 +20,11 @@ type Member = {
 };
 
 const initial: Member[] = [
-  { id: "1", name: "Larissa Costa", role: "Vendedora Sênior", email: "larissa@jcstore.com", phone: "(11) 98888-1122", sales: "R$ 4.740,50", commission: "10%", active: true },
-  { id: "2", name: "César Ricardo Gomes", role: "Gerente de Loja", email: "cesar@jcstore.com", phone: "(11) 99777-3344", sales: "R$ 7.385,00", commission: "10%", active: true },
-  { id: "3", name: "André Carlos", role: "Vendedor", email: "andre@jcstore.com", phone: "(11) 98666-5566", sales: "R$ 3.505,00", commission: "10%", active: true },
-  { id: "4", name: "Armando Silva Bispo", role: "Vendedor", email: "armando@jcstore.com", phone: "(11) 97555-7788", sales: "R$ 2.484,00", commission: "10%", active: true },
-  { id: "5", name: "Camila Barbosa", role: "Vendedora", email: "camila@jcstore.com", phone: "(11) 96444-9900", sales: "R$ 2.260,50", commission: "10%", active: true },
+  { id: "1", name: "Larissa Costa", role: "Vendedora Sênior", email: "larissa@jcstore.com", phone: "(11) 98888-1122", sales: "R$ 0,00", commission: "10%", active: true },
+  { id: "2", name: "César Ricardo Gomes", role: "Gerente de Loja", email: "cesar@jcstore.com", phone: "(11) 99777-3344", sales: "R$ 0,00", commission: "10%", active: true },
+  { id: "3", name: "André Carlos", role: "Vendedor", email: "andre@jcstore.com", phone: "(11) 98666-5566", sales: "R$ 0,00", commission: "10%", active: true },
+  { id: "4", name: "Armando Silva Bispo", role: "Vendedor", email: "armando@jcstore.com", phone: "(11) 97555-7788", sales: "R$ 0,00", commission: "10%", active: true },
+  { id: "5", name: "Camila Barbosa", role: "Vendedora", email: "camila@jcstore.com", phone: "(11) 96444-9900", sales: "R$ 0,00", commission: "10%", active: true },
   { id: "6", name: "Rodrigo Lima", role: "Estoquista", email: "rodrigo@jcstore.com", phone: "(11) 95333-2211", sales: "—", commission: "—", active: true },
   { id: "7", name: "Beatriz Souza", role: "Caixa", email: "beatriz@jcstore.com", phone: "(11) 94222-4433", sales: "—", commission: "—", active: false },
 ];
