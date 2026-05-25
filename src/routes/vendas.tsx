@@ -8,19 +8,20 @@ export const Route = createFileRoute("/vendas")(({
   component: VendasPage,
 }));
 
+const zero = { units: 0, revenue: "R$ 0,00", cost: "R$ 0,00", marginR: "R$ 0,00", marginP: "0,0%", noCost: 0 };
 const monthsData = {
-  0: { month: "Janeiro", units: 142, revenue: "R$ 18.540", cost: "R$ 9.270", marginR: "R$ 9.270", marginP: "50.0%", noCost: 0 },
-  1: { month: "Fevereiro", units: 154, revenue: "R$ 20.120", cost: "R$ 10.060", marginR: "R$ 10.060", marginP: "50.0%", noCost: 0 },
-  2: { month: "Março", units: 168, revenue: "R$ 21.980", cost: "R$ 10.990", marginR: "R$ 10.990", marginP: "50.0%", noCost: 0 },
-  3: { month: "Abril", units: 172, revenue: "R$ 22.450", cost: "R$ 11.225", marginR: "R$ 11.225", marginP: "50.0%", noCost: 0 },
-  4: { month: "Maio", units: 156, revenue: "R$ 20.375", cost: "R$ 10.159", marginR: "R$ 10.215", marginP: "50.1%", noCost: 0 },
-  5: { month: "Junho", units: 184, revenue: "R$ 24.120", cost: "R$ 12.060", marginR: "R$ 12.060", marginP: "50.0%", noCost: 0 },
-  6: { month: "Julho", units: 195, revenue: "R$ 25.480", cost: "R$ 12.740", marginR: "R$ 12.740", marginP: "50.0%", noCost: 0 },
-  7: { month: "Agosto", units: 202, revenue: "R$ 26.380", cost: "R$ 13.190", marginR: "R$ 13.190", marginP: "50.0%", noCost: 0 },
-  8: { month: "Setembro", units: 188, revenue: "R$ 24.560", cost: "R$ 12.280", marginR: "R$ 12.280", marginP: "50.0%", noCost: 0 },
-  9: { month: "Outubro", units: 210, revenue: "R$ 27.450", cost: "R$ 13.725", marginR: "R$ 13.725", marginP: "50.0%", noCost: 0 },
-  10: { month: "Novembro", units: 225, revenue: "R$ 29.380", cost: "R$ 14.690", marginR: "R$ 14.690", marginP: "50.0%", noCost: 0 },
-  11: { month: "Dezembro", units: 245, revenue: "R$ 32.010", cost: "R$ 16.005", marginR: "R$ 16.005", marginP: "50.0%", noCost: 0 },
+  0: { month: "Janeiro", ...zero },
+  1: { month: "Fevereiro", ...zero },
+  2: { month: "Março", ...zero },
+  3: { month: "Abril", ...zero },
+  4: { month: "Maio", ...zero },
+  5: { month: "Junho", ...zero },
+  6: { month: "Julho", ...zero },
+  7: { month: "Agosto", ...zero },
+  8: { month: "Setembro", ...zero },
+  9: { month: "Outubro", ...zero },
+  10: { month: "Novembro", ...zero },
+  11: { month: "Dezembro", ...zero },
 };
 
 const ranking: {
