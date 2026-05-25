@@ -13,27 +13,22 @@ export const Route = createFileRoute("/")(({
   component: Dashboard,
 }));
 
-const topProducts = [
-  { name: "Camiseta Oversized Preta", sold: 42, revenue: "R$ 3.780,00" },
-  { name: "Calça Jeans Slim", sold: 31, revenue: "R$ 5.890,00" },
-  { name: "Moletom Canguru", sold: 24, revenue: "R$ 4.320,00" },
-  { name: "Tênis Casual Branco", sold: 19, revenue: "R$ 5.510,00" },
-  { name: "Boné Trucker", sold: 17, revenue: "R$ 1.190,00" },
-];
+const topProducts: { name: string; sold: number; revenue: string }[] = [];
 
+const zero = { units: 0, revenue: "R$ 0,00", cost: "R$ 0,00", margin: "R$ 0,00", marginPercent: "0,0%" };
 const monthsData = {
-  0: { month: "Janeiro", units: 198, revenue: "R$ 22.340", cost: "R$ 11.170", margin: "R$ 11.170", marginPercent: "50.0%" },
-  1: { month: "Fevereiro", units: 215, revenue: "R$ 24.580", cost: "R$ 12.290", margin: "R$ 12.290", marginPercent: "50.0%" },
-  2: { month: "Março", units: 232, revenue: "R$ 26.780", cost: "R$ 13.390", margin: "R$ 13.390", marginPercent: "50.0%" },
-  3: { month: "Abril", units: 240, revenue: "R$ 27.650", cost: "R$ 13.825", margin: "R$ 13.825", marginPercent: "50.0%" },
-  4: { month: "Maio", units: 248, revenue: "R$ 28.450", cost: "R$ 14.220", margin: "R$ 14.230", marginPercent: "50.0%" },
-  5: { month: "Junho", units: 255, revenue: "R$ 29.340", cost: "R$ 14.670", margin: "R$ 14.670", marginPercent: "50.0%" },
-  6: { month: "Julho", units: 268, revenue: "R$ 31.200", cost: "R$ 15.600", margin: "R$ 15.600", marginPercent: "50.0%" },
-  7: { month: "Agosto", units: 275, revenue: "R$ 32.100", cost: "R$ 16.050", margin: "R$ 16.050", marginPercent: "50.0%" },
-  8: { month: "Setembro", units: 262, revenue: "R$ 30.450", cost: "R$ 15.225", margin: "R$ 15.225", marginPercent: "50.0%" },
-  9: { month: "Outubro", units: 280, revenue: "R$ 33.200", cost: "R$ 16.600", margin: "R$ 16.600", marginPercent: "50.0%" },
-  10: { month: "Novembro", units: 295, revenue: "R$ 35.800", cost: "R$ 17.900", margin: "R$ 17.900", marginPercent: "50.0%" },
-  11: { month: "Dezembro", units: 310, revenue: "R$ 38.500", cost: "R$ 19.250", margin: "R$ 19.250", marginPercent: "50.0%" },
+  0: { month: "Janeiro", ...zero },
+  1: { month: "Fevereiro", ...zero },
+  2: { month: "Março", ...zero },
+  3: { month: "Abril", ...zero },
+  4: { month: "Maio", ...zero },
+  5: { month: "Junho", ...zero },
+  6: { month: "Julho", ...zero },
+  7: { month: "Agosto", ...zero },
+  8: { month: "Setembro", ...zero },
+  9: { month: "Outubro", ...zero },
+  10: { month: "Novembro", ...zero },
+  11: { month: "Dezembro", ...zero },
 };
 
 function Dashboard() {
@@ -96,20 +91,24 @@ function Dashboard() {
             <h3 className="font-semibold">Produtos mais vendidos</h3>
           </div>
           <div className="divide-y divide-border">
-            {topProducts.map((p, i) => (
-              <div key={p.name} className="flex items-center justify-between py-3">
-                <div className="flex items-center gap-3">
-                  <span className="h-7 w-7 rounded-md bg-primary/10 text-primary text-xs flex items-center justify-center font-bold">
-                    {i + 1}
-                  </span>
-                  <span className="text-sm font-medium">{p.name}</span>
+            {topProducts.length === 0 ? (
+              <p className="py-6 text-center text-sm text-muted-foreground">Nenhum produto vendido ainda.</p>
+            ) : (
+              topProducts.map((p, i) => (
+                <div key={p.name} className="flex items-center justify-between py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="h-7 w-7 rounded-md bg-primary/10 text-primary text-xs flex items-center justify-center font-bold">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm font-medium">{p.name}</span>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-semibold">{p.revenue}</p>
+                    <p className="text-xs text-muted-foreground">{p.sold} un.</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm font-semibold">{p.revenue}</p>
-                  <p className="text-xs text-muted-foreground">{p.sold} un.</p>
-                </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
 
@@ -118,16 +117,16 @@ function Dashboard() {
             <Users className="h-5 w-5 text-primary" />
             <h3 className="font-semibold">Colaboradores ativos</h3>
           </div>
-          <p className="text-4xl font-bold">7</p>
-          <p className="text-sm text-muted-foreground mt-1">Online hoje: 4</p>
+          <p className="text-4xl font-bold">0</p>
+          <p className="text-sm text-muted-foreground mt-1">Online hoje: 0</p>
           <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
             <div className="rounded-md bg-secondary p-2">
               <p className="text-muted-foreground">Vendas hoje</p>
-              <p className="font-semibold text-foreground">R$ 2.140</p>
+              <p className="font-semibold text-foreground">R$ 0,00</p>
             </div>
             <div className="rounded-md bg-secondary p-2">
               <p className="text-muted-foreground">Comandas</p>
-              <p className="font-semibold text-foreground">18</p>
+              <p className="font-semibold text-foreground">0</p>
             </div>
           </div>
         </div>

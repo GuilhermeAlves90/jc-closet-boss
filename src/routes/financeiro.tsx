@@ -10,14 +10,9 @@ export const Route = createFileRoute("/financeiro")({
 
 type Conta = { id: string; desc: string; due: string; value: string };
 
-const initial: Conta[] = [
-  { id: "1", desc: "Aluguel da loja", due: "25/05", value: "R$ 4.200,00" },
-  { id: "2", desc: "Fornecedor — Tecidos SP", due: "28/05", value: "R$ 2.150,00" },
-  { id: "3", desc: "Energia elétrica", due: "30/05", value: "R$ 680,00" },
-  { id: "4", desc: "Internet", due: "02/06", value: "R$ 199,90" },
-];
+const initial: Conta[] = [];
 
-const STORAGE_KEY = "jcstore:financeiro";
+const STORAGE_KEY = "jcstore:financeiro:v2";
 
 function FinanceiroPage() {
   const [contas, setContas] = useState<Conta[]>(() => {
@@ -45,10 +40,10 @@ function FinanceiroPage() {
   return (
     <AppLayout title="Financeiro">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <StatCard label="Receita do mês" value="R$ 28.450" accent="success" />
-        <StatCard label="Despesas" value="R$ 9.820" accent="destructive" />
-        <StatCard label="Lucro líquido" value="R$ 18.630" accent="primary" />
-        <StatCard label="A receber" value="R$ 3.210" accent="warning" />
+        <StatCard label="Receita do mês" value="R$ 0,00" accent="success" />
+        <StatCard label="Despesas" value="R$ 0,00" accent="destructive" />
+        <StatCard label="Lucro líquido" value="R$ 0,00" accent="primary" />
+        <StatCard label="A receber" value="R$ 0,00" accent="warning" />
       </div>
 
       <div className="rounded-xl border border-border bg-card p-6">

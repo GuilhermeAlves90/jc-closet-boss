@@ -10,15 +10,9 @@ export const Route = createFileRoute("/lancamentos")({
 
 type Lanc = { id: string; type: "in" | "out"; desc: string; value: string; date: string };
 
-const initial: Lanc[] = [
-  { id: "1", type: "in", desc: "Venda — Camiseta Oversized", value: "R$ 89,90", date: "20/05 14:32" },
-  { id: "2", type: "out", desc: "Compra de mercadoria", value: "R$ 1.250,00", date: "20/05 10:15" },
-  { id: "3", type: "in", desc: "Venda — Calça Jeans Slim", value: "R$ 189,90", date: "19/05 17:48" },
-  { id: "4", type: "out", desc: "Pagamento de comissão", value: "R$ 738,50", date: "19/05 09:00" },
-  { id: "5", type: "in", desc: "Venda — Tênis Casual", value: "R$ 289,90", date: "18/05 16:21" },
-];
+const initial: Lanc[] = [];
 
-const STORAGE_KEY = "jcstore:lancamentos";
+const STORAGE_KEY = "jcstore:lancamentos:v2";
 
 function LancamentosPage() {
   const [items, setItems] = useState<Lanc[]>(() => {
