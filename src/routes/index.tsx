@@ -117,16 +117,16 @@ function Dashboard() {
             <Users className="h-5 w-5 text-primary" />
             <h3 className="font-semibold">Colaboradores ativos</h3>
           </div>
-          <p className="text-4xl font-bold">7</p>
-          <p className="text-sm text-muted-foreground mt-1">Online hoje: 4</p>
+          <p className="text-4xl font-bold">0</p>
+          <p className="text-sm text-muted-foreground mt-1">Online hoje: 0</p>
           <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
             <div className="rounded-md bg-secondary p-2">
               <p className="text-muted-foreground">Vendas hoje</p>
-              <p className="font-semibold text-foreground">R$ 2.140</p>
+              <p className="font-semibold text-foreground">R$ 0,00</p>
             </div>
             <div className="rounded-md bg-secondary p-2">
               <p className="text-muted-foreground">Comandas</p>
-              <p className="font-semibold text-foreground">18</p>
+              <p className="font-semibold text-foreground">0</p>
             </div>
           </div>
         </div>
