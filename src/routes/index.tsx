@@ -13,27 +13,22 @@ export const Route = createFileRoute("/")(({
   component: Dashboard,
 }));
 
-const topProducts = [
-  { name: "Camiseta Oversized Preta", sold: 42, revenue: "R$ 3.780,00" },
-  { name: "Calça Jeans Slim", sold: 31, revenue: "R$ 5.890,00" },
-  { name: "Moletom Canguru", sold: 24, revenue: "R$ 4.320,00" },
-  { name: "Tênis Casual Branco", sold: 19, revenue: "R$ 5.510,00" },
-  { name: "Boné Trucker", sold: 17, revenue: "R$ 1.190,00" },
-];
+const topProducts: { name: string; sold: number; revenue: string }[] = [];
 
+const zero = { units: 0, revenue: "R$ 0,00", cost: "R$ 0,00", margin: "R$ 0,00", marginPercent: "0,0%" };
 const monthsData = {
-  0: { month: "Janeiro", units: 198, revenue: "R$ 22.340", cost: "R$ 11.170", margin: "R$ 11.170", marginPercent: "50.0%" },
-  1: { month: "Fevereiro", units: 215, revenue: "R$ 24.580", cost: "R$ 12.290", margin: "R$ 12.290", marginPercent: "50.0%" },
-  2: { month: "Março", units: 232, revenue: "R$ 26.780", cost: "R$ 13.390", margin: "R$ 13.390", marginPercent: "50.0%" },
-  3: { month: "Abril", units: 240, revenue: "R$ 27.650", cost: "R$ 13.825", margin: "R$ 13.825", marginPercent: "50.0%" },
-  4: { month: "Maio", units: 248, revenue: "R$ 28.450", cost: "R$ 14.220", margin: "R$ 14.230", marginPercent: "50.0%" },
-  5: { month: "Junho", units: 255, revenue: "R$ 29.340", cost: "R$ 14.670", margin: "R$ 14.670", marginPercent: "50.0%" },
-  6: { month: "Julho", units: 268, revenue: "R$ 31.200", cost: "R$ 15.600", margin: "R$ 15.600", marginPercent: "50.0%" },
-  7: { month: "Agosto", units: 275, revenue: "R$ 32.100", cost: "R$ 16.050", margin: "R$ 16.050", marginPercent: "50.0%" },
-  8: { month: "Setembro", units: 262, revenue: "R$ 30.450", cost: "R$ 15.225", margin: "R$ 15.225", marginPercent: "50.0%" },
-  9: { month: "Outubro", units: 280, revenue: "R$ 33.200", cost: "R$ 16.600", margin: "R$ 16.600", marginPercent: "50.0%" },
-  10: { month: "Novembro", units: 295, revenue: "R$ 35.800", cost: "R$ 17.900", margin: "R$ 17.900", marginPercent: "50.0%" },
-  11: { month: "Dezembro", units: 310, revenue: "R$ 38.500", cost: "R$ 19.250", margin: "R$ 19.250", marginPercent: "50.0%" },
+  0: { month: "Janeiro", ...zero },
+  1: { month: "Fevereiro", ...zero },
+  2: { month: "Março", ...zero },
+  3: { month: "Abril", ...zero },
+  4: { month: "Maio", ...zero },
+  5: { month: "Junho", ...zero },
+  6: { month: "Julho", ...zero },
+  7: { month: "Agosto", ...zero },
+  8: { month: "Setembro", ...zero },
+  9: { month: "Outubro", ...zero },
+  10: { month: "Novembro", ...zero },
+  11: { month: "Dezembro", ...zero },
 };
 
 function Dashboard() {
